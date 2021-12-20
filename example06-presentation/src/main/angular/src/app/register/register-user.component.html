@@ -1,0 +1,35 @@
+<div class="text-center jumbotron py-4">
+  <form class="form-signin" (submit)="registerUser($event)">
+    <h1 id="register.title" class="h3 mb-3 font-weight-normal">Moin!</h1>
+    <p class="text-muted">
+      Schön dich hier zu haben. Wir bräuchten da noch ein paar Daten von dir:
+    </p>
+
+    <div id="register.error" class="alert alert-danger" *ngIf="errorMessage != ''">
+      <span *ngFor="let msg of errorMessage.split('\n')">{{msg}}<br></span>
+      <button type="button" class="close float-right" aria-label="Close" (click)="errorMessage = ''">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label for="username" class="sr-only">Nutzername</label>
+      <input id="register.username" type="text" class="form-control" placeholder="Nutzername" [(ngModel)]="username" name="username" required
+        autofocus>
+    </div>
+    <div class="form-group">
+      <label for="password" class="sr-only">Passwort</label>
+      <input id="register.password" type="password" class="form-control" placeholder="Passwort" [(ngModel)]="password" name="password"
+        required>
+    </div>
+    <button id="register.register" class="btn btn-lg btn-primary btn-block">Registrieren</button>
+  </form>
+
+  <hr>
+
+  <form (submit)="registerUser()" class="form-signin">
+    <button id="register.back" class="btn btn-secondary btn-block" type="submit" routerLink="" routerLinkActive="active">
+      Zurück
+    </button>
+  </form>
+</div>

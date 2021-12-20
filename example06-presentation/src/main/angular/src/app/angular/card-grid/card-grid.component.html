@@ -1,0 +1,98 @@
+<div id="session.card.info" class="alert alert-info" *ngIf="sessions.length == 0">
+  Es wurden noch keine Trainingseinheiten angelegt!
+</div>
+
+<div class="row" *ngIf="sessions.length > 0">
+  
+  <div class="col-sm-4 pb-3 card-hover-check d-flex align-items-stretch" style="min-width: 18em;"
+    *ngFor="let s of sessions; let i = index">
+    <div *ngIf="true" class="card" [ngClass]="{'border-success' : checkAttendance(s.attendees)}"
+      style="min-width: 16em;">
+      <div class="card-body card-container">
+        <div class="card-title">
+          <div class="row no-gutters">
+            <h5 id="session.card.name" class="float-left col">
+              {{s.name}}
+            </h5>
+            <a class="zoom" [ngClass]="{'hidden-edit-button' : !checkEditable(s)}">
+              <mat-icon id="session.card.edit" class="float-right align-top zoom col" style="font-size: 1.5em; padding-right: 15pt;"
+                (click)="openModal(editModal)">
+              edit
+              </mat-icon>
+            </a>
+          </div>
+          <h6 id="session.card.creator" >
+            Erstellt von: {{s.creator.username}}
+          </h6>
+        </div>
+        <div id="session.card.description" class="card-text">
+          {{s.description}}
+        </div>
+      </div>
+      <div class="card-badge-footer mb-2 row">
+        <span id="session.card.sporttype" class="badge badge-secondary card-badge mr-1 float-left zoom" [ngbPopover]="sporttypePopOver"
+          triggers="mouseenter:mouseleave">{{s.typeOfSport.name}}</span>
+
+        <!-- sporttype popover BEGIN -->
+        <ng-template #sporttypePopOver>
+          <wt2-sportTypes-card [sportType]=s.typeOfSport></wt2-sportTypes-card>
+        </ng-template>
+        <!-- sporttype popover END -->
+
+        <span id="session.card.private" *ngIf="s.private" class="badge badge-warning card-badge float-right">privat</span>
+      </div>
+      <div class="card-footer not-hidden-time card-footer-height">
+        <small style="font-size: 9.5pt;" class="text-muted icon-text text-center">
+            <mat-icon id="session.card.appointment" inline=true style="font-size: 1.4em; padding-right: 3pt;">
+            access_time
+            </mat-icon> {{s.appointment | date:'dd.LL.yy HH:mm'}}, {{s.duration}} Min.
+        </small>
+      </div>
+      <div class="card-footer hidden-enroll-button card-footer-height">
+        
+        <!-- TODO ngIf anpassen: Benutzer nimmt noch nicht teil? -->
+        <button id="session.card.addUser" *ngIf="!checkAttendance(s.attendees)" type="button" class="btn btn-success w-100"
+          [ngbPopover]="attendeesPopOver"
+          triggers="mouseenter:mouseleave" (click)="addUserToTrainingSession(s)">
+          Anmelden <span class="badge badge-light ml-1">{{s.attendees.length}}</span>
+          <span class="sr-only">nehmen momentan teil</span>
+        </button> 
+
+        <!-- TODO ngIf anpassen: Benutzer nimmt schon teil -->
+        <button id="session.card.removeUser" *ngIf="checkAttendance(s.attendees)" type="button" class="btn btn-danger w-100"
+          [ngbPopover]="attendeesPopOver"
+          triggers="mouseenter:mouseleave" (click)="removeUserFromTrainingSession(s)">
+          Abmelden <span id="session.card.attendees.amount" class="badge badge-light ml-1">{{s.attendees.length}}</span>
+          <span class="sr-only">nehmen momentan teil</span>
+        </button>
+
+        <!-- edit modal BEGIN -->
+        <ng-template #editModal let-modal>
+          <div class="modal-header">
+            <h4 id="session.edit.title" class="modal-title" id="modal-basic-title">Sporteinheit bearbeiten</h4>
+            <button id="session.edit.dismiss" type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h6 id="session.edit.creator" class="modal-title">Erstellt von: {{s.creator.username}}</h6>
+            <wt2-edit-trainingSession [inputSession]="s" (close)="closePopOver($event)"></wt2-edit-trainingSession>
+          </div>
+        </ng-template>
+        <!-- edit modal END -->
+
+        <!-- attendees popover BEGIN -->
+        <ng-template #attendeesPopOver>
+          <p id="session.card.attendees.none" *ngIf="s.attendees.length === 0">Noch niemand angemeldet</p>
+
+          <ul id="session.card.attendees" *ngIf="s.attendees.length > 0" class="list-group list-group-flush">
+            <li *ngFor="let a of s.attendees | slice:0:5; let i = index" class="list-group-item">{{a.username}}</li>
+            <li *ngIf="s.attendees.length > 5" class="list-group-item">+{{s.attendees.length-5}} weitere</li>
+          </ul>
+        </ng-template>
+        <!-- attendees popover END -->
+
+      </div>
+    </div>
+  </div>
+</div>

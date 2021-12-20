@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-4">
+    <h4 class="title">Einheit erstellen</h4>
+    <hr>
+    <wt2-create-trainingSession (created)="load()"></wt2-create-trainingSession>
+  </div>
+
+  <div class="col-8">
+    <h4 class="title">Verfügbare Einheiten</h4>
+    <hr>
+    <wt2-card-grid [sessions]="sessions"></wt2-card-grid>
+  </div>
+</div>

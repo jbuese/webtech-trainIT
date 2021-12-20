@@ -1,0 +1,63 @@
+<div class="card">
+    <div class="card-body">
+  
+      <div id="session.create.error" class="alert alert-danger" *ngIf="errorMessage != ''">
+        <span *ngFor="let msg of errorMessage.split('\n')">{{msg}}<br></span>
+        <button type="button" class="close float-right" aria-label="Close" (click)="errorMessage = ''">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <h5 id="session.create.title" class="card-title">Neue Sporteinheit erstellen</h5>
+      
+      <form (submit)="createTrainingSession($event)">
+        <div class="form-group">
+          <label>Name</label>
+          <input id="session.create.name" name="name" class="form-control" type="text" [(ngModel)]="name" (change)="debugTest(name)" required>
+        </div>
+
+        <div class="form-group">
+          <label>Beschreibung <span [ngClass]="getCharsLeft() < 0 ? 'text-danger' : 'text-muted'">({{getCharsLeft()}})</span></label>
+          <textarea id="session.create.description" name="description" class="form-control" [(ngModel)]="description" (change)="debugTest(description)"></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label for="sportTypes">Sportart</label>
+          <select id="session.create.sportType" name="selectedTypeOfSport" [(ngModel)]="selectedTypeOfSport" (change)="debugTest(selectedTypeOfSport)" class="form-control" id="sportTypes" required>
+            <option *ngFor="let type of sportTypes" [ngValue]="type">{{type.name}}</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label>Dauer (in Minuten)</label>
+          <input id="session.create.duration" name="duration" class="form-control" type="number" min="1" [(ngModel)]="duration" (change)="debugTestInt(duration)" required>
+        </div>
+
+
+        <div class="form-group">
+          <label>Termin</label>
+          <input id="session.create.appointment" name="appointment" class="form-control" type="datetime-local" [(ngModel)]="appointment" (change)="debugTest(appointment)" required>
+        </div>
+
+        <hr>
+        <label>Sichtbarkeit</label><br>
+        <div class="form-check-inline col-md-5">
+          <label class="form-check-label">
+            <input id="session.create.private" name="optradio" class="form-check-input active" type="radio" [(ngModel)]="private" [value]="true" (change)="debugTestBool(private)" required>Privat
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input id="session.create.public" name="optradio" class="form-check-input" type="radio" [(ngModel)]="private" [value]="false" (change)="debugTestBool(private)" required>Öffentlich
+          </label>
+        </div>
+
+        <hr>
+        <button id="session.create.submit" class="btn btn-block btn-outline-primary" [disabled]="getCharsLeft() < 0">Erstellen</button>
+      </form>
+  
+    </div>
+  </div>
+  

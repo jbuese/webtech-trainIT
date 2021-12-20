@@ -1,0 +1,21 @@
+  <div class="card" style="min-width: 17.5em;">
+    <div class="card-body card-container">
+      <div class="card-title">
+        <div class="row no-gutters">
+          <h4 id="sporttype.card.name" class="float-left col">
+            {{sportType.name}}
+          </h4>
+        </div>
+      </div>
+      <div id="sporttype.card.description" class="card-text">
+        {{sportType.description}}
+        <div class="card-badge-footer mt-3">
+          <span id="sporttype.card.indoor" class="badge badge-secondary card-badge mr-1"
+            triggers="mouseenter:mouseleave">{{getIndoorString(sportType.indoor)}}</span>
+          <span id="sporttype.card.teamsport" class="badge badge-success card-badge">
+            {{getTeamsportString(sportType.teamsport)}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>

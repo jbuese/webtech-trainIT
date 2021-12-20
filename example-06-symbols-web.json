@@ -1,0 +1,690 @@
+{
+  "version": "2.0.0-SNAPSHOT",
+  "type": "symbols",
+  "symbols": [
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [
+        {
+          "type": "input",
+          "name": "content",
+          "parameterType": "STRING"
+        },
+        {
+          "type": "input",
+          "name": "headline",
+          "parameterType": "STRING"
+        }
+      ],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "create news",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": true,
+          "errorOutput": null,
+          "action": {
+            "type": "web_checkForNode",
+            "node": {
+              "selector": "//h5[normalize-space(text()) = '{{$headline}}'] | //h6[normalize-space(text()) = '{{$headline}}']",
+              "type": "XPATH"
+            }
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_fill",
+            "node": {
+              "selector": "input[name=\"headline\"]",
+              "type": "CSS"
+            },
+            "value": "{{$headline}}"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_fill",
+            "node": {
+              "selector": "textarea[name=\"content\"]",
+              "type": "CSS"
+            },
+            "value": "{{$content}}"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": "body",
+              "type": "CSS"
+            },
+            "tagName": "button",
+            "text": "Create News"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_waitForText",
+            "value": "{{$headline}}",
+            "regexp": false,
+            "node": {
+              "selector": "news-details h5",
+              "type": "CSS"
+            },
+            "maxWaitTime": 10
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_checkForText",
+            "value": "{{$content}}",
+            "regexp": false,
+            "node": {
+              "selector": "news-details",
+              "type": "CSS"
+            }
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_checkForText",
+            "value": "{{$headline}}",
+            "regexp": false,
+            "node": {
+              "selector": "news-list h6",
+              "type": "CSS"
+            }
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:28:56.310+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "get latest news",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "setVariableByHTML",
+            "name": "headline",
+            "node": {
+              "selector": "news-details h5",
+              "type": "CSS"
+            }
+          }
+        }
+      ],
+      "successOutput": "{{$headline}}",
+      "updatedOn": "2020-05-04T14:25:38.711+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "get number of news",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "setVariableByNodeCount",
+            "name": "count",
+            "node": {
+              "selector": "news-list .list-group-item",
+              "type": "CSS"
+            }
+          }
+        }
+      ],
+      "successOutput": "{{$count}}",
+      "updatedOn": "2020-05-04T14:26:56.207+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "go to angular",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": ".nav",
+              "type": "CSS"
+            },
+            "tagName": "a",
+            "text": "Angular"
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:29:54.871+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "go to auth",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": ".nav",
+              "type": "CSS"
+            },
+            "tagName": "a",
+            "text": "Auth"
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:30:23.241+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "go to security",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": ".nav",
+              "type": "CSS"
+            },
+            "tagName": "a",
+            "text": "Security"
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:30:09.555+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [
+        {
+          "type": "input",
+          "name": "password",
+          "parameterType": "STRING"
+        },
+        {
+          "type": "input",
+          "name": "username",
+          "parameterType": "STRING"
+        }
+      ],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "login",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_fill",
+            "node": {
+              "selector": "input[name=\"username\"]",
+              "type": "CSS"
+            },
+            "value": "{{$username}}"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_fill",
+            "node": {
+              "selector": "input[name=\"password\"]",
+              "type": "CSS"
+            },
+            "value": "{{$password}}"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": "body",
+              "type": "CSS"
+            },
+            "tagName": "button",
+            "text": "Login"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_waitForText",
+            "value": "Create News",
+            "regexp": false,
+            "node": {
+              "selector": "body",
+              "type": "CSS"
+            },
+            "maxWaitTime": 10
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:35:56.583+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "logout",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": "body",
+              "type": "CSS"
+            },
+            "tagName": "button",
+            "text": "Logout"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_waitForText",
+            "value": "Login",
+            "regexp": false,
+            "node": {
+              "selector": "body",
+              "type": "CSS"
+            },
+            "maxWaitTime": 10
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:36:33.943+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "reset",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "rest_call",
+            "method": "GET",
+            "url": "/rest/reset",
+            "baseUrl": "Base",
+            "timeout": 0,
+            "headers": {},
+            "credentials": {
+              "name": "",
+              "password": ""
+            },
+            "cookies": {}
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "rest_checkStatus",
+            "status": 200
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_goto",
+            "url": "/",
+            "baseUrl": "Base",
+            "credentials": {
+              "name": "",
+              "password": ""
+            }
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_waitForText",
+            "value": "Webtech 2 Examples",
+            "regexp": false,
+            "node": {
+              "selector": "body",
+              "type": "CSS"
+            },
+            "maxWaitTime": 10
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-04T14:31:32.229+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "use basic auth",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": "app-auth",
+              "type": "CSS"
+            },
+            "tagName": "a",
+            "text": "Basic"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_waitForText",
+            "value": "Login",
+            "regexp": false,
+            "node": {
+              "selector": "app-auth",
+              "type": "CSS"
+            },
+            "maxWaitTime": 10
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:38:13.430+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "use jwt auth",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": "app-auth",
+              "type": "CSS"
+            },
+            "tagName": "a",
+            "text": "JWT"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_waitForText",
+            "value": "Login",
+            "regexp": false,
+            "node": {
+              "selector": "app-auth",
+              "type": "CSS"
+            },
+            "maxWaitTime": 10
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:38:27.990+02:00"
+    },
+    {
+      "description": "",
+      "expectedResult": "",
+      "hidden": false,
+      "inputs": [],
+      "lastUpdatedBy": {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@alex.example",
+        "role": "ADMIN"
+      },
+      "name": "use session auth",
+      "outputs": [],
+      "steps": [
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_clickElementByText",
+            "node": {
+              "selector": "app-auth",
+              "type": "CSS"
+            },
+            "tagName": "a",
+            "text": "Session"
+          }
+        },
+        {
+          "type": "action",
+          "disabled": false,
+          "ignoreFailure": false,
+          "negated": false,
+          "errorOutput": null,
+          "action": {
+            "type": "web_waitForText",
+            "value": "Login",
+            "regexp": false,
+            "node": {
+              "selector": "app-auth",
+              "type": "CSS"
+            },
+            "maxWaitTime": 10
+          }
+        }
+      ],
+      "successOutput": null,
+      "updatedOn": "2020-05-05T09:38:38.413+02:00"
+    }
+  ]
+}

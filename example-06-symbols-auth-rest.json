@@ -1,0 +1,1176 @@
+{
+  "version": "2.0.0-SNAPSHOT",
+  "type": "symbolGroups",
+  "symbolGroups": [
+    {
+      "name": "jwt",
+      "symbols": [
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "jwt - reset",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "token",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/reset",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {},
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {}
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariable",
+                "name": "token",
+                "value": ""
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-05T11:46:32.100+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "content",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "headline",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "token",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "jwt - create news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "POST",
+                "url": "/rest/auth/jwt/news",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {
+                  "Authorization": "Bearer {{$token}}"
+                },
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {},
+                "data": "{\"headline\":\"{{$headline}}\", \"content\": \"{{$content}}\"}"
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T14:50:36.004+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "password",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "username",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "jwt - auth ",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "token",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "POST",
+                "url": "/rest/auth/jwt/authenticate",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {},
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {},
+                "data": "{\"username\":\"{{$username}}\", \"password\": \"{{$password}}\"}"
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariableByHttpResponse",
+                "name": "token"
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-05T11:51:11.899+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "token",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "jwt - latest news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/auth/jwt/news/newest",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {
+                  "Authorization": "Bearer {{$token}}"
+                },
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {}
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariableByJSON",
+                "name": "headline",
+                "value": "headline"
+              }
+            }
+          ],
+          "successOutput": "{{$headline}}",
+          "updatedOn": "2020-05-05T11:59:48.157+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "token",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "jwt - all news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/auth/jwt/news",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {
+                  "Authorization": "Bearer {{$token}}"
+                },
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {}
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariableByJSON",
+                "name": "size",
+                "value": "$.size()"
+              }
+            }
+          ],
+          "successOutput": "{{$size}}",
+          "updatedOn": "2020-05-11T13:41:47.663+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "jwt - logout",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "token",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariable",
+                "name": "token",
+                "value": ""
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T13:43:03.156+02:00"
+        }
+      ],
+      "groups": []
+    },
+    {
+      "name": "session",
+      "symbols": [
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "session - logout",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "cookie",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariable",
+                "name": "cookie",
+                "value": ""
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T14:48:30.501+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "cookie",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "session - latest news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/auth/session/news/newest",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {},
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {
+                  "JSESSIONID": "{{$cookie}}"
+                }
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariableByJSON",
+                "name": "headline",
+                "value": "headline"
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T14:51:21.907+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "content",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "cookie",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "headline",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "session - create news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "POST",
+                "url": "/rest/auth/session/news",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {},
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {
+                  "JSESSIONID": "{{$cookie}}"
+                },
+                "data": "{\"headline\":\"{{$headline}}\", \"content\": \"{{$content}}\"}"
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T14:50:49.535+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "password",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "username",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "session - auth",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "cookie",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "POST",
+                "url": "/login.jsp",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {},
+                "data": "username={{$username}}&password={{$password}}\n"
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariableByCookie",
+                "name": "cookie",
+                "value": "JSESSIONID",
+                "cookieType": "REST"
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T14:52:32.378+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "cookie",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "session - all news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/auth/session/news",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {},
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {
+                  "JSESSIONID": "{{$cookie}}"
+                }
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariableByJSON",
+                "name": "size",
+                "value": "$.size()"
+              }
+            }
+          ],
+          "successOutput": "{{$size}}",
+          "updatedOn": "2020-05-11T14:49:28.191+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "session - reset",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "cookie",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/reset",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {},
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {}
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariable",
+                "name": "cookie",
+                "value": ""
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T14:45:42.825+02:00"
+        }
+      ],
+      "groups": []
+    },
+    {
+      "name": "basic",
+      "symbols": [
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "basic - logout",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "base64key",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariable",
+                "name": "base64key",
+                "value": ""
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T15:00:35.854+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "base64key",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "basic - latest news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/auth/basic/news/newest",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {
+                  "Authorization": "Basic {{$base64key}}"
+                },
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {}
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariableByJSON",
+                "name": "headline",
+                "value": "headline"
+              }
+            }
+          ],
+          "successOutput": "{{$headline}}",
+          "updatedOn": "2020-05-11T14:59:56.040+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "base64key",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "content",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "headline",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "basic - create news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "POST",
+                "url": "/rest/auth/session/news",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {
+                  "Authorization": "Basic {{$base64key}}"
+                },
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {},
+                "data": "{\"headline\":\"{{$headline}}\", \"content\": \"{{$content}}\"}"
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T15:01:23.274+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "password",
+              "parameterType": "STRING"
+            },
+            {
+              "type": "input",
+              "name": "username",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "basic - auth",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "base64key",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "web_executeScript",
+                "script": "var username = arguments[0].variables.username;\nvar password = arguments[0].variables.password;\nreturn btoa(username + \":\" + password);\n",
+                "async": false,
+                "timeout": 10,
+                "name": "base64key"
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T14:58:00.420+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [
+            {
+              "type": "input",
+              "name": "base64key",
+              "parameterType": "STRING"
+            }
+          ],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "basic - all news",
+          "outputs": [],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/auth/basic/news",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {
+                  "Authorization": "Basic {{$base64key}}"
+                },
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {}
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariableByJSON",
+                "name": "size",
+                "value": "$.size()"
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T14:59:01.819+02:00"
+        },
+        {
+          "description": "",
+          "expectedResult": "",
+          "hidden": false,
+          "inputs": [],
+          "lastUpdatedBy": {
+            "id": 1,
+            "username": "admin",
+            "email": "admin@alex.example",
+            "role": "ADMIN"
+          },
+          "name": "basic - reset",
+          "outputs": [
+            {
+              "type": "output",
+              "name": "base64key",
+              "parameterType": "STRING"
+            }
+          ],
+          "steps": [
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "web_goto",
+                "url": "/",
+                "baseUrl": "Base",
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                }
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_call",
+                "method": "GET",
+                "url": "/rest/reset",
+                "baseUrl": "Base",
+                "timeout": 0,
+                "headers": {},
+                "credentials": {
+                  "name": "",
+                  "password": ""
+                },
+                "cookies": {}
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "rest_checkStatus",
+                "status": 200
+              }
+            },
+            {
+              "type": "action",
+              "disabled": false,
+              "ignoreFailure": false,
+              "negated": false,
+              "errorOutput": null,
+              "action": {
+                "type": "setVariable",
+                "name": "base64key",
+                "value": ""
+              }
+            }
+          ],
+          "successOutput": null,
+          "updatedOn": "2020-05-11T15:07:28.209+02:00"
+        }
+      ],
+      "groups": []
+    }
+  ]
+}

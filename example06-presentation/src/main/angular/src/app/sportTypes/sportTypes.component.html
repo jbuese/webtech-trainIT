@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-4">
+    <h4 class="title">Sportart hinzufügen</h4>
+    <hr>
+    <wt2-create-sportType (created)="load()"></wt2-create-sportType>
+  </div>
+
+  <div class="col-8">
+    <h4 class="title">Verfügbare Sportarten</h4>
+    <hr>
+        <wt2-sportTypes-list [sportTypes]=sportTypes></wt2-sportTypes-list>
+    </div>
+  </div>

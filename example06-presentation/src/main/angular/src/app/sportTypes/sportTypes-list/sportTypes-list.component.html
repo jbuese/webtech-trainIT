@@ -1,0 +1,12 @@
+<div id="sporttype.card.info" class="alert alert-info" *ngIf="sportTypes.length == 0">
+    Keine Sportarten verfügbar
+  </div>
+  
+  <div class="row" *ngIf="sportTypes.length > 0">
+    
+    <div class="col-sm-4 pb-3 card-hover-check d-flex align-items-stretch" style="min-width: 18em;"
+      *ngFor="let type of sportTypes">
+      <wt2-sportTypes-card [sportType]="type"></wt2-sportTypes-card>
+    </div>
+  
+  </div>

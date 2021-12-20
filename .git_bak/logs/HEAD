@@ -1,0 +1,72 @@
+0000000000000000000000000000000000000000 96f94c7ac11785ba151a8e3f8bb089470cb19302 Janis Büse <JanisBuese@gmail.com> 1590661480 +0200	clone: from https://janisbuese@bitbucket.org/janisbuese/training.git
+96f94c7ac11785ba151a8e3f8bb089470cb19302 3009dfcea5ee68409c14538b9934a805f2c06aeb Janis Büse <JanisBuese@gmail.com> 1590661740 +0200	commit: Initial
+3009dfcea5ee68409c14538b9934a805f2c06aeb 3009dfcea5ee68409c14538b9934a805f2c06aeb Janis Büse <JanisBuese@gmail.com> 1591532929 +0200	checkout: moving from master to Card-Und-Cardgrid
+3009dfcea5ee68409c14538b9934a805f2c06aeb 4a37b9fc8b8ff894ac7dfc22983f49fa836f95dc Janis Büse <JanisBuese@gmail.com> 1591629351 +0200	commit: Erstes Layout für Card-Grid, Basis-Model für session, sportType und user
+4a37b9fc8b8ff894ac7dfc22983f49fa836f95dc 488e2d361ab03517965d762c0e518bb24dc7194f Janis Büse <JanisBuese@gmail.com> 1591892713 +0200	pull --no-commit origin Card-Und-Cardgrid: Fast-forward
+488e2d361ab03517965d762c0e518bb24dc7194f 0bed2ec4acdf7bfaf05283a2cf962ac57f690a1d Janis Büse <JanisBuese@gmail.com> 1591913293 +0200	commit: Edit-Modal & Teilnehmer-Popover hinzugefügt
+0bed2ec4acdf7bfaf05283a2cf962ac57f690a1d 8120633e6b7f91eb4d1edf0f26cb30aedc4e5b82 Janis Büse <JanisBuese@gmail.com> 1592136156 +0200	pull --no-commit origin Card-Und-Cardgrid: Fast-forward
+8120633e6b7f91eb4d1edf0f26cb30aedc4e5b82 3009dfcea5ee68409c14538b9934a805f2c06aeb Janis Büse <JanisBuese@gmail.com> 1592137210 +0200	checkout: moving from Card-Und-Cardgrid to master
+3009dfcea5ee68409c14538b9934a805f2c06aeb e76fdb37369a5c372d8867d83dc7601df99eb8f9 Janis Büse <JanisBuese@gmail.com> 1592137226 +0200	pull --no-commit origin master: Fast-forward
+e76fdb37369a5c372d8867d83dc7601df99eb8f9 563bd71ec9e45e243de2321377c355a4a6e4c0ac Janis Büse <JanisBuese@gmail.com> 1592142524 +0200	pull --no-commit origin master: Fast-forward
+563bd71ec9e45e243de2321377c355a4a6e4c0ac 5c53e3ba0fabeabd7d20129f3a4e45bd2053d4c0 Janis Büse <JanisBuese@gmail.com> 1592142604 +0200	commit: Visuelle Komponenten der Cards soweit fertig
+5c53e3ba0fabeabd7d20129f3a4e45bd2053d4c0 3a9aec861194ad29119855040dbb8483b2ee959e Janis Büse <JanisBuese@gmail.com> 1592147645 +0200	pull --no-commit origin master: Fast-forward
+3a9aec861194ad29119855040dbb8483b2ee959e b66c76877986e0a6c7b1993a151d38f52a56e671 Janis Büse <JanisBuese@gmail.com> 1592154788 +0200	pull --no-commit origin master: Fast-forward
+b66c76877986e0a6c7b1993a151d38f52a56e671 b66c76877986e0a6c7b1993a151d38f52a56e671 Janis Büse <JanisBuese@gmail.com> 1592162706 +0200	reset: moving to HEAD
+b66c76877986e0a6c7b1993a151d38f52a56e671 bbcf763b77212876783146760c60b71957df9803 Janis Büse <JanisBuese@gmail.com> 1592162717 +0200	pull --no-commit origin master: Fast-forward
+bbcf763b77212876783146760c60b71957df9803 26fc33140373973151416b9df8f7e6b52917c6f3 Janis Büse <JanisBuese@gmail.com> 1592162830 +0200	commit: Angular-Direktive hinzugefügt, Weitergabe der Daten auf PopOver und Edit-Modal
+26fc33140373973151416b9df8f7e6b52917c6f3 71518f9185757c4069a4a7cd117a34c95fb4f281 Janis Büse <JanisBuese@gmail.com> 1592166609 +0200	commit: Login/Register-Ansichten und Routing, Es fehlt: AuthService und Formkontrolle
+71518f9185757c4069a4a7cd117a34c95fb4f281 13af8182c5375b8bcc888001ebc65f9e42482d42 Janis Büse <JanisBuese@gmail.com> 1592167302 +0200	commit: Dateien auf die richtige Ordnerebene gezogen
+13af8182c5375b8bcc888001ebc65f9e42482d42 2d21ed2cd9931ebb8d5c39ae120d23f00b85c3fe Janis Büse <JanisBuese@gmail.com> 1592484983 +0200	commit: Anpassungen in CardGrid & Register
+2d21ed2cd9931ebb8d5c39ae120d23f00b85c3fe beb6718199ba21b16e0ba3a92e23b01f187d1d33 Janis Büse <JanisBuese@gmail.com> 1592485379 +0200	commit: Anpassung vom Nav und der URL-Pfade
+beb6718199ba21b16e0ba3a92e23b01f187d1d33 6867c2c2f3c247fc8399f4350344b94e67984ec2 Janis Büse <JanisBuese@gmail.com> 1592510632 +0200	commit: CardGrid-Component: Alle Angular-Direktiven hinzugefügt (Anmelden/Abmelden, Edit nur für Admin/Creator usw.), Session-Model: attendees hinzugefügt, Session-Service angepasst
+6867c2c2f3c247fc8399f4350344b94e67984ec2 69aaf7acc9c178cf5b9def95e79284cf3058b673 Janis Büse <JanisBuese@gmail.com> 1592512259 +0200	commit: Logout-Button im Nav
+69aaf7acc9c178cf5b9def95e79284cf3058b673 b57c83a96cd141b9730c4695a5380c0c807281f4 Janis Büse <JanisBuese@gmail.com> 1592512494 +0200	commit: Jumbotron für Login/Register
+b57c83a96cd141b9730c4695a5380c0c807281f4 beb6718199ba21b16e0ba3a92e23b01f187d1d33 Janis Büse <JanisBuese@gmail.com> 1592573700 +0200	reset: moving to beb6718199ba21b16e0ba3a92e23b01f187d1d33
+beb6718199ba21b16e0ba3a92e23b01f187d1d33 6867c2c2f3c247fc8399f4350344b94e67984ec2 Janis Büse <JanisBuese@gmail.com> 1592573719 +0200	reset: moving to 6867c2c2f3c247fc8399f4350344b94e67984ec2
+6867c2c2f3c247fc8399f4350344b94e67984ec2 b57c83a96cd141b9730c4695a5380c0c807281f4 Janis Büse <JanisBuese@gmail.com> 1592573908 +0200	reset: moving to b57c83a96cd141b9730c4695a5380c0c807281f4
+b57c83a96cd141b9730c4695a5380c0c807281f4 5279fe9be15e63db07fa01a756b0fdbf4ec6f191 Janis Büse <JanisBuese@gmail.com> 1592574271 +0200	commit: Fix: cli nicht ausführbar wegen Fehlern in Bsp-Auth/Security-Dateien
+5279fe9be15e63db07fa01a756b0fdbf4ec6f191 3d91f85c794f4a0ec99cb35773ab64bf7013b7d3 Janis Büse <JanisBuese@gmail.com> 1592581056 +0200	commit: Sporttyp-Anzeigen vereinheitlicht / Bug bei Sporttypes behoben
+3d91f85c794f4a0ec99cb35773ab64bf7013b7d3 532495cddb8b8125b50dd49db66118a5815675c7 Janis Büse <JanisBuese@gmail.com> 1592586714 +0200	commit: Fix für Problem, bei dem die Sportarten nach dem Erstellen nicht neu geladen wurden
+532495cddb8b8125b50dd49db66118a5815675c7 2e6356b5f15097dfb7077ea0f777f0b3e7eaa4d6 Janis Büse <JanisBuese@gmail.com> 1592651615 +0200	pull --no-commit origin master: Fast-forward
+2e6356b5f15097dfb7077ea0f777f0b3e7eaa4d6 4308f2326ccce67eaba796d10ba341a1e12cde09 Janis Büse <JanisBuese@gmail.com> 1592740487 +0200	pull --no-commit origin master: Fast-forward
+4308f2326ccce67eaba796d10ba341a1e12cde09 fb922018724a95e2666e8d4a734449012ec9b355 Janis Büse <JanisBuese@gmail.com> 1592814376 +0200	pull --no-commit origin master: Fast-forward
+fb922018724a95e2666e8d4a734449012ec9b355 61d0c73981acbc66c501900a556be17033f75818 Janis Büse <JanisBuese@gmail.com> 1592823171 +0200	pull --no-commit origin master: Fast-forward
+61d0c73981acbc66c501900a556be17033f75818 918bb06919e327cdfcef90dd144a313ed58f241e Janis Büse <JanisBuese@gmail.com> 1592828621 +0200	pull --no-commit origin master: Fast-forward
+918bb06919e327cdfcef90dd144a313ed58f241e b2d8220bf241d0040f7920515180269d39ebe6c5 Janis Büse <JanisBuese@gmail.com> 1592828768 +0200	commit: Backend-Auth: Shiro Realm, BasicUserPermission, RegisterRest
+b2d8220bf241d0040f7920515180269d39ebe6c5 785938b2b20f10819b007f99e529c4eb0896eb02 Janis Büse <JanisBuese@gmail.com> 1592830532 +0200	pull --no-commit origin master: Fast-forward
+785938b2b20f10819b007f99e529c4eb0896eb02 7b045813480bf8f7f1601032deb5666401cdfd74 Janis Büse <JanisBuese@gmail.com> 1592831375 +0200	pull --no-commit origin master: Fast-forward
+7b045813480bf8f7f1601032deb5666401cdfd74 fcb4048e1625c7c5a32a46d63812a264cc58e2f3 Janis Büse <JanisBuese@gmail.com> 1592832917 +0200	pull --no-commit origin master: Fast-forward
+fcb4048e1625c7c5a32a46d63812a264cc58e2f3 5e7fd21485ee7f4b1d15ba2a7cfcad1c3686d484 Janis Büse <JanisBuese@gmail.com> 1592833243 +0200	commit: Temporäres GetMapping für User
+5e7fd21485ee7f4b1d15ba2a7cfcad1c3686d484 3b7d1018b92786ecd05386e5e8fbede612e5e50b Janis Büse <JanisBuese@gmail.com> 1592839760 +0200	commit: Fix für Anzeige von Attendees
+3b7d1018b92786ecd05386e5e8fbede612e5e50b ddf6b4d5761a5fc7f0e68dc0bb560bc7884447cb Janis Büse <JanisBuese@gmail.com> 1592856835 +0200	commit: Login funktioniert und gibt JSESSIONID zurück. Allerdings abgesehen vom Login-Formular noch nicht eingebaut ins Frontend.
+ddf6b4d5761a5fc7f0e68dc0bb560bc7884447cb 6a6c67aa9e7f248d721dd473ab8b7a5a32d936be Janis Büse <JanisBuese@gmail.com> 1592950698 +0200	commit: AuthGuard für Routing, Login-Redirect, AuthService komplett (Logout funktioniert Backend-Seitig nicht), AuthService.username zu CardGrid hinzugefügt
+6a6c67aa9e7f248d721dd473ab8b7a5a32d936be 1ddd148fb9ac5c98d3be567752066737f58f1687 Janis Büse <JanisBuese@gmail.com> 1592950753 +0200	commit: Debug-Zusatz wieder entfernt
+1ddd148fb9ac5c98d3be567752066737f58f1687 78115ee34e0be66e82194a6fca6286008f0a54a5 Janis Büse <JanisBuese@gmail.com> 1592987241 +0200	commit: Seltsame Import-Fehler behoben
+78115ee34e0be66e82194a6fca6286008f0a54a5 73c615bf23c1103d1817d50ba3ea4e4433d75220 Janis Büse <JanisBuese@gmail.com> 1592988436 +0200	commit: Username-Bug behoben
+73c615bf23c1103d1817d50ba3ea4e4433d75220 caff0482043669acb8f52c2891486199e2a3fa79 Janis Büse <JanisBuese@gmail.com> 1592990156 +0200	commit: Routing: StageComponent hinzugefügt, Sub-Routing, NavBar aktualisiert noch nicht
+caff0482043669acb8f52c2891486199e2a3fa79 b760d7692d7a7c8d28463158049fce4563504717 Janis Büse <JanisBuese@gmail.com> 1593011547 +0200	pull --no-commit origin master: Fast-forward
+b760d7692d7a7c8d28463158049fce4563504717 9f93aa7e3a4f582d05ea54de1245f4c11fd03030 Janis Büse <JanisBuese@gmail.com> 1593014507 +0200	commit: Fix für Session-Permissions und Private-Label
+9f93aa7e3a4f582d05ea54de1245f4c11fd03030 3b4fb83ad0cf2671f11d809f4a29577f0474c55e Janis Büse <JanisBuese@gmail.com> 1593015854 +0200	pull --no-commit origin master: Fast-forward
+3b4fb83ad0cf2671f11d809f4a29577f0474c55e 85c4710e8dc37667454ba10a27b777dd84d882a5 Janis Büse <JanisBuese@gmail.com> 1593015939 +0200	commit: Admin-Attr wieder zu User hinzugefügt, isAdmin-Rest
+85c4710e8dc37667454ba10a27b777dd84d882a5 7cc3627d45d41185fa38673a7f78ea61d8786788 Janis Büse <JanisBuese@gmail.com> 1593017622 +0200	pull --no-commit origin master: Fast-forward
+7cc3627d45d41185fa38673a7f78ea61d8786788 d9a2f0ddb64c0e0edc86d1b1f64b147f424a9923 Janis Büse <JanisBuese@gmail.com> 1593017918 +0200	commit: Fix für falsch gecasteten Creator-User
+d9a2f0ddb64c0e0edc86d1b1f64b147f424a9923 47a9a0f682cbce97a7e8d15d25b1d723683fed05 Janis Büse <JanisBuese@gmail.com> 1593018008 +0200	pull --no-commit origin master: Fast-forward
+47a9a0f682cbce97a7e8d15d25b1d723683fed05 74f1766a8b0292a11eca2d2596e15c2ccb460d60 Janis Büse <JanisBuese@gmail.com> 1593030016 +0200	commit: Fix: getCredentials-Bug behoben. Passwort wird jetzt beim Login mit beachtet.
+74f1766a8b0292a11eca2d2596e15c2ccb460d60 3ab0c64149d8150d400dadf67e6fd7b9c861b22c Janis Büse <JanisBuese@gmail.com> 1593032113 +0200	commit: Sporttype-Tab wird nur für Admins angezeigt, Register-User funktioniert jetzt
+3ab0c64149d8150d400dadf67e6fd7b9c861b22c c62cf019b1ef9a373de5f9e82ba4cd2f9feb5b0d Janis Büse <JanisBuese@gmail.com> 1593080037 +0200	pull --no-commit origin master: Fast-forward
+c62cf019b1ef9a373de5f9e82ba4cd2f9feb5b0d f439faa7f2fc80f57f5ec72392639a2f22fe5c4f Janis Büse <JanisBuese@gmail.com> 1593082772 +0200	commit: Fix: Nav aktualisiert sich nicht bei Tabwechsel
+f439faa7f2fc80f57f5ec72392639a2f22fe5c4f d512f9b907b04727873a286d9a35bb0b8bca2c2c Janis Büse <JanisBuese@gmail.com> 1593087859 +0200	commit: Logo/App-Namen hinzugefügt
+d512f9b907b04727873a286d9a35bb0b8bca2c2c 9fd1fa25c3937cf278c306a6cab3b95f8011247f Janis Büse <JanisBuese@gmail.com> 1593088803 +0200	commit: Fix: falsche Card-Width
+9fd1fa25c3937cf278c306a6cab3b95f8011247f 4110f35d1881065e00fe4a5338e065930b61fb5f Janis Büse <JanisBuese@gmail.com> 1593091058 +0200	commit: Favicon und Title
+4110f35d1881065e00fe4a5338e065930b61fb5f 63aaf1e79c232906018b016de691561ae33021ef Janis Büse <JanisBuese@gmail.com> 1593104315 +0200	pull --no-commit origin master: Fast-forward
+63aaf1e79c232906018b016de691561ae33021ef bd30dffdc8916b5f84e44bfd086fabdaeb5bc034 Janis Büse <JanisBuese@gmail.com> 1593110680 +0200	pull --no-commit origin master: Fast-forward
+bd30dffdc8916b5f84e44bfd086fabdaeb5bc034 ecd429b3065de011a3843960b3d133e546ea01fb Janis Büse <JanisBuese@gmail.com> 1593117361 +0200	commit: Fix: Logout/Login funktioniert jetzt, REST-Schnittstellen komplett abgesicht mit ShiroConfig und BasicUserPermission
+ecd429b3065de011a3843960b3d133e546ea01fb 282c72b60435e214cc21184c266bd6af0490a411 Janis Büse <JanisBuese@gmail.com> 1593117677 +0200	commit: Keine Ahnung, warum das noch dazu gehört
+282c72b60435e214cc21184c266bd6af0490a411 492d27cbc622f38fc2d2d339caa9e8bb1db8935c Janis Büse <JanisBuese@gmail.com> 1593169948 +0200	pull --no-commit origin master: Fast-forward
+492d27cbc622f38fc2d2d339caa9e8bb1db8935c 0da0c35081001ff6aaeb27deb37690ec67e3a2bb Janis Büse <JanisBuese@gmail.com> 1593174966 +0200	commit: Workaround für Zeit+Datum, vielleicht klappts
+0da0c35081001ff6aaeb27deb37690ec67e3a2bb 945024c8cdcaa8a6d883403abb31da75815dc679 Janis Büse <JanisBuese@gmail.com> 1593336396 +0200	pull --no-commit origin master: Fast-forward
+945024c8cdcaa8a6d883403abb31da75815dc679 9a9a9237ee14d2e18a86a73b191397db9f79fd0c Janis Büse <JanisBuese@gmail.com> 1593869948 +0200	pull --no-commit origin master: Fast-forward
+9a9a9237ee14d2e18a86a73b191397db9f79fd0c c5b83509aed28fa067e944b55c443aaf2950384b Janis Büse <JanisBuese@gmail.com> 1594031400 +0200	pull --no-commit origin master: Fast-forward
+c5b83509aed28fa067e944b55c443aaf2950384b 8e127d5df324665048180467ef4bc418d7e893f2 Janis Büse <JanisBuese@gmail.com> 1594286660 +0200	pull --no-commit origin master: Fast-forward
+8e127d5df324665048180467ef4bc418d7e893f2 1b5ffdf2056125e9e3f1adbfd5f40ff7d554dc82 Janis Büse <JanisBuese@gmail.com> 1594290839 +0200	commit: Timeout eingebaut für Edit-Session und onClose verschoben
+1b5ffdf2056125e9e3f1adbfd5f40ff7d554dc82 568750207a6967da04c55ae2bfd033ce79ec2142 Janis Büse <JanisBuese@gmail.com> 1594299056 +0200	pull --no-commit origin master: Fast-forward

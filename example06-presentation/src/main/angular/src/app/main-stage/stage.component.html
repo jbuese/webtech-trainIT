@@ -1,0 +1,24 @@
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a id="nav.sessions" class="nav-link" [routerLink]="['session']" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}">Einheiten</a>
+    </li>
+    <li *ngIf="this.authService.isAdmin" class="nav-item">
+      <a id="nav.sporttypes" class="nav-link" [routerLink]="['sportTypes']" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}">Sportarten</a>
+    </li>
+    <li class="nav-item ml-auto">
+      <span style="padding: 1em;" class="badge badge-light mr-3 text-muted">
+        Willkommen {{this.authService.username}}!
+      </span>
+      <button id="nav.logout" class="btn btn-outline-secondary" type="submit" (click)="logout()">Logout</button>
+    </li>
+  </ul>
+</div>
+
+<br>
+
+<section>
+  <router-outlet></router-outlet>
+</section>
