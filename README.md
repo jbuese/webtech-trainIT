@@ -80,28 +80,3 @@ According to Shiro's idea of permissions, permissions owned by a subject may imp
 According to the implementation of `ReadNewsItemPermission`'s implies method, it implies a `ViewFirstFiveNewsItemsPermission` permission.
 However, it does not blindly implies the requested permission, but rather calls its check-method, to actually decide on the implication.
 This allows to utilize Shiro's permission-system to implement an attribute-based access control system, because `ViewFirstFiveNewsItemsPermission`'s check-method may return `true` or `false` based on arbitrary variables.
-
-
-## Security
-
-* **XSS**: The `news-details` component was configured to bypass Angular's internal sanitation system, so that the content of the news item is rendered without sanitation.
-  To exploit this security hole use e.g. the following code as the content of the news entry:
-  ```html
-  <div style="
-      position: absolute;
-      background-color: dodgerblue;
-      top: 0px;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      text-align: center;
-      font-size: large;">
-  YOUR SITE HAS BEEN COMPROMISED
-  </div>
-  ```
-
-* **SQL injection**: the `create-news-security` component was extended to call a new, unsafe REST endpoint in the backend, that persist the news item using raw SQL and therefore being susceptible to SQL injections.
-  To exploit this security hole use e.g. the following code as the content of the news entry:
-  ```sql
-  '; DROP TABLE DBNews; --
-  ```
